@@ -1,123 +1,94 @@
+import 'package:cool_bottom_bar/cool_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  int selected = 0;
+
+  List colors = [Colors.deepPurple, Colors.pink, Colors.yellow, Colors.cyan];
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
-        child: Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.only(
-              left: 30,
-              bottom: 30,
-              right: 20,
-              top: 20,
-            ),
-            height: height * 0.3,
-            width: width,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
+      child: Scaffold(
+        drawer: Drawer(),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.deepPurple,
+        ),
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              top: 0,
+              child: Container(
+                color: Colors.deepPurple,
+                width: width,
+                height: height * .27,
               ),
             ),
-            child: Stack(
-              children: [
-                Align(
-                  child: Text(
-                    'Welcome to Mumbai!',
-                    style: TextStyle(
-                      fontSize: 25,
-                    ),
-                  ),
-                  alignment: Alignment.bottomLeft,
-                ),
-                Align(
-                  child: Icon(Icons.settings),
-                  alignment: Alignment.topRight,
-                ),
-              ],
+            Positioned(
+              top: height * 0.22,
+              height: 70,
+              width: width * 0.8,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10), color: Colors.red),
+              ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20, top: 20),
-            child: Text(
-              'Explore',
-              style: TextStyle(fontSize: 20),
+            Positioned(
+              height: height * 0.55,
+              width: width,
+              child: Container(
+                color: Colors.yellow,
+              ),
+              bottom: 0,
             ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20, top: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 75,
-                  width: 75,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.red,
-                  ),
-                  child: Icon(Icons.location_on),
-                ),
-                Container(
-                  height: 75,
-                  width: 75,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.red,
-                  ),
-                  child: Icon(Icons.location_on),
-                ),
-                Container(
-                  height: 75,
-                  width: 75,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.red,
-                  ),
-                  child: Icon(Icons.location_on),
-                ),
-                Container(
-                  height: 75,
-                  width: 75,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.red,
-                  ),
-                  child: Icon(Icons.location_on),
-                ),
-              ],
+          ],
+        ),
+        bottomNavigationBar: CoolBottomBar(
+          items: <CoolBarItem>[
+            CoolBarItem(
+              icon: Icon(Icons.home),
+              activeColor: Colors.deepPurple[700],
+              backgroundColor: Colors.deepPurple[100],
+              title: "Home",
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 20, top: 20, right: 20),
-            child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  color: Colors.grey),
+            CoolBarItem(
+              icon: Icon(Icons.favorite_border),
+              activeColor: Colors.pink[700],
+              backgroundColor: Colors.pink[100],
+              title: "Likes",
             ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20, top: 20),
-            child: Text(
-              'Popular',
-              style: TextStyle(fontSize: 20),
+            CoolBarItem(
+              icon: Icon(Icons.search),
+              activeColor: Colors.yellow[700],
+              backgroundColor: Colors.yellow[100],
+              title: "Search",
             ),
-          ),
-        ],
+            CoolBarItem(
+              icon: Icon(Icons.person),
+              activeColor: Colors.cyan[700],
+              backgroundColor: Colors.cyan[100],
+              title: "Profile",
+            )
+          ],
+          selectedIndex: selected,
+          itemClicked: (int index) {
+            setState(() {
+              selected = index;
+            });
+          },
+        ),
       ),
-    ));
+    );
   }
 }
