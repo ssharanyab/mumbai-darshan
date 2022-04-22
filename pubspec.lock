@@ -43,13 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  cool_bottom_bar:
-    dependency: "direct main"
-    description:
-      name: cool_bottom_bar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1"
   cupertino_icons:
     dependency: "direct main"
     description:

@@ -1,4 +1,3 @@
-import 'package:cool_bottom_bar/cool_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +20,7 @@ class _DashboardState extends State<Dashboard> {
       child: Scaffold(
         drawer: Drawer(),
         appBar: AppBar(
+          title: Text('Mumbai Darshan'),
           elevation: 0,
           backgroundColor: Colors.deepPurple,
         ),
@@ -47,46 +47,10 @@ class _DashboardState extends State<Dashboard> {
             Positioned(
               height: height * 0.55,
               width: width,
-              child: Container(
-                color: Colors.yellow,
-              ),
+              child: Container(),
               bottom: 0,
             ),
           ],
-        ),
-        bottomNavigationBar: CoolBottomBar(
-          items: <CoolBarItem>[
-            CoolBarItem(
-              icon: Icon(Icons.home),
-              activeColor: Colors.deepPurple[700],
-              backgroundColor: Colors.deepPurple[100],
-              title: "Home",
-            ),
-            CoolBarItem(
-              icon: Icon(Icons.favorite_border),
-              activeColor: Colors.pink[700],
-              backgroundColor: Colors.pink[100],
-              title: "Likes",
-            ),
-            CoolBarItem(
-              icon: Icon(Icons.search),
-              activeColor: Colors.yellow[700],
-              backgroundColor: Colors.yellow[100],
-              title: "Search",
-            ),
-            CoolBarItem(
-              icon: Icon(Icons.person),
-              activeColor: Colors.cyan[700],
-              backgroundColor: Colors.cyan[100],
-              title: "Profile",
-            )
-          ],
-          selectedIndex: selected,
-          itemClicked: (int index) {
-            setState(() {
-              selected = index;
-            });
-          },
         ),
       ),
     );
