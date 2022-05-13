@@ -31,15 +31,28 @@ class _HomeState extends State<Home> {
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.camera_alt_rounded),
+        backgroundColor: Colors.transparent,
+        child: Container(
+          height: 50,
+          width: 50,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color(0xffFFDEBF),
+              border: Border.all()),
+          child: const Icon(
+            Icons.camera_alt_outlined,
+            color: Colors.black,
+          ),
+        ),
         onPressed: () => {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
+        color: Color(0xffC98686),
         shape: CircularNotchedRectangle(),
         notchMargin: 10,
         child: Container(
-          height: 50,
+          height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -57,16 +70,26 @@ class _HomeState extends State<Home> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.home,
-                          color: index == 0 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Home',
-                          style: TextStyle(
-                            color: index == 0 ? Colors.blue : Colors.grey,
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffFFDEBF),
+                              border: Border.all()),
+                          child: Icon(
+                            Icons.home,
+                            color: index == 2 ? Colors.black : Colors.black,
                           ),
                         ),
+                        // Text(
+                        //   'Home',
+                        //   style: TextStyle(
+                        //     color: index == 0 ? Colors.black : Colors.black,
+                        //     fontStyle: FontStyle.italic,
+                        //     fontSize: 12,
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -81,16 +104,26 @@ class _HomeState extends State<Home> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.location_on,
-                          color: index == 1 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Explore',
-                          style: TextStyle(
-                            color: index == 1 ? Colors.blue : Colors.grey,
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffFFDEBF),
+                              border: Border.all()),
+                          child: Icon(
+                            Icons.explore,
+                            color: index == 2 ? Colors.black : Colors.black,
                           ),
                         ),
+                        // Text(
+                        //   'Explore',
+                        //   style: TextStyle(
+                        //     color: index == 1 ? Colors.black : Colors.black,
+                        //     fontSize: 12,
+                        //     fontStyle: FontStyle.italic,
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -110,16 +143,26 @@ class _HomeState extends State<Home> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.text_snippet_rounded,
-                          color: index == 2 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Notes',
-                          style: TextStyle(
-                            color: index == 2 ? Colors.blue : Colors.grey,
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffFFDEBF),
+                              border: Border.all(style: BorderStyle.solid)),
+                          child: Icon(
+                            Icons.text_snippet_rounded,
+                            color: index == 2 ? Colors.black : Colors.black,
                           ),
                         ),
+                        // Text(
+                        //   'Notes',
+                        //   style: TextStyle(
+                        //     color: index == 2 ? Colors.black : Colors.black,
+                        //     fontStyle: FontStyle.italic,
+                        //     fontSize: 12,
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -134,16 +177,25 @@ class _HomeState extends State<Home> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.g_translate,
-                          color: index == 3 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Translate',
-                          style: TextStyle(
-                            color: index == 3 ? Colors.blue : Colors.grey,
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffFFDEBF),
+                              border: Border.all()),
+                          child: Icon(
+                            Icons.g_translate,
+                            color: index == 2 ? Colors.black : Colors.black,
                           ),
                         ),
+                        // Text(
+                        //   'Translate',
+                        //   style: TextStyle(
+                        //       fontStyle: FontStyle.italic,
+                        //       color: index == 3 ? Colors.black : Colors.black,
+                        //       fontSize: 12),
+                        // ),
                       ],
                     ),
                   ),

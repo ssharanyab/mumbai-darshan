@@ -18,40 +18,43 @@ class _DashboardState extends State<Dashboard> {
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        drawer: Drawer(),
         appBar: AppBar(
-          title: Text('Mumbai Darshan'),
+          toolbarHeight: 200,
+          flexibleSpace: Container(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 30,
+                bottom: 55,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Mumbai Darshan',
+                    style: TextStyle(
+                      fontSize: 36,
+                    ),
+                  ),
+                  Text(
+                    'Explore the City of dreams',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          backgroundColor: Color(0xffC98686),
           elevation: 0,
-          backgroundColor: Colors.deepPurple,
+          shape: Border(
+            bottom: BorderSide(
+              color: Color(0xffFFDEBF),
+              width: 10,
+            ),
+          ),
         ),
-        body: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              top: 0,
-              child: Container(
-                color: Colors.deepPurple,
-                width: width,
-                height: height * .27,
-              ),
-            ),
-            Positioned(
-              top: height * 0.22,
-              height: 70,
-              width: width * 0.8,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), color: Colors.red),
-              ),
-            ),
-            Positioned(
-              height: height * 0.55,
-              width: width,
-              child: Container(),
-              bottom: 0,
-            ),
-          ],
-        ),
+        body: Container(),
       ),
     );
   }
