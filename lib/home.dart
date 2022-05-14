@@ -32,6 +32,7 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.transparent,
+        elevation: 0,
         child: Container(
           height: 50,
           width: 50,
@@ -40,13 +41,15 @@ class _HomeState extends State<Home> {
               color: Color(0xffFFDEBF),
               border: Border.all()),
           child: const Icon(
-            Icons.camera_alt_outlined,
+            Icons.add,
             color: Colors.black,
           ),
         ),
         onPressed: () => {},
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomAppBar(
         color: Color(0xffC98686),
         shape: CircularNotchedRectangle(),
