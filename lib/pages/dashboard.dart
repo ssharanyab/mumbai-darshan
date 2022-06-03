@@ -24,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
             child: Container(
               width: width,
               height: 200,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xffC98686),
                 border: Border(
                   bottom: BorderSide(
@@ -50,7 +50,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     Text(
-                      'Explore the City of dreams',
+                      'Explore the City of Dreams',
                       style: TextStyle(fontSize: 20),
                     ),
                   ],
