@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mumbai/pages/details/cst.dart';
+import 'package:mumbai/pages/details/gateway.dart';
+import 'package:mumbai/pages/details/marinedrive.dart';
+import 'package:mumbai/pages/details/princeofwales.dart';
+import 'package:mumbai/widgets/card.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -95,7 +100,79 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
             ),
-          )
+          ),
+          Positioned(
+            top: 250,
+            left: 15,
+            right: 15,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Popular Places',
+                  style: TextStyle(
+                    fontSize: 22,
+                  ),
+                ),
+                Container(
+                  height: 200,
+                  width: width,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      CardTile(
+                        imgName: 'assets/gateway.png',
+                        titleText: 'Gateway of India',
+                        subtitleText: 'Subtilte',
+                        callback: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GatewayofIndia()),
+                          );
+                        },
+                      ),
+                      CardTile(
+                        imgName: 'assets/marinedrive.png',
+                        titleText: 'Marine Drive',
+                        subtitleText: 'Subtilte',
+                        callback: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => marinedrive()),
+                          );
+                        },
+                      ),
+                      CardTile(
+                        imgName: 'assets/cst.png',
+                        titleText: 'Chatrapati Shivaji Termius',
+                        subtitleText: 'Subtilte',
+                        callback: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => cst()),
+                          );
+                        },
+                      ),
+                      CardTile(
+                        imgName: 'assets/princeofwales.png',
+                        titleText: 'Prince Of Wales Museum',
+                        subtitleText: 'Subtilte',
+                        callback: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PrinceofWales()),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
