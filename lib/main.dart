@@ -16,20 +16,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        //primaryColor: Color(0xffC98686),
-        // colorScheme: ColorScheme(
-        //   onBackground: Color(0xffC98686),
-        //   error: null,
-        //   surface: null,
-        //   primary: null,
-        //   onPrimary: null,
-        //   secondary: null,
-        //   background: null,
-        //   onSurface: null,
-        //   onSecondary: null,
-        //   brightness: null,
-        //   onError: null,
-        // ),
         backgroundColor: Colors.white,
         primarySwatch: Colors.blue,
         appBarTheme: const AppBarTheme(

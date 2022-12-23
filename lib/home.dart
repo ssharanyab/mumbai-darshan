@@ -5,7 +5,6 @@ import 'package:mumbai/pages/dashboard.dart';
 import 'package:mumbai/pages/explore.dart';
 import 'package:mumbai/pages/notedown.dart';
 import 'package:mumbai/pages/translate.dart';
-import 'package:mumbai/widgets/circular_button.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -51,203 +50,128 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        child: Stack(
-          children: [
-            Positioned(
-              child: Stack(
-                children: [
-                  Transform.translate(
-                    offset: Offset.fromDirection(getRadiansFromDegree(315),
-                        degreeOneTranslationAnimation.value * 80),
-                    child: CircularButton(
-                      icon: Icon(
-                        Icons.person,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  Transform.translate(
-                    offset: Offset.fromDirection(getRadiansFromDegree(270),
-                        degreeOneTranslationAnimation.value * 80),
-                    child: CircularButton(
-                      icon: Icon(
-                        Icons.settings,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  Transform.translate(
-                    offset: Offset.fromDirection(getRadiansFromDegree(225),
-                        degreeOneTranslationAnimation.value * 80),
-                    child: GestureDetector(
-                      child: CircularButton(
-                        icon: Icon(
-                          Icons.g_translate,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xffFFDEBF),
-                        border: Border.all(),
-                      ),
-                      child: animationController.isCompleted
-                          ? const Icon(
-                              Icons.close,
-                              color: Colors.black,
-                            )
-                          : const Icon(
-                              Icons.add,
-                              color: Colors.black,
-                            ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-        onPressed: () => {
-          if (animationController.isCompleted)
-            {animationController.reverse()}
-          else
-            {animationController.forward()}
-        },
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomAppBar(
-        color: Color(0xffC98686),
         shape: CircularNotchedRectangle(),
-        notchMargin: 10,
+        notchMargin: 100,
         child: Container(
-          height: 60,
+          decoration: const BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(30.0),
+              //bottomRight: Radius.circular(40.0),
+              topLeft: Radius.circular(30.0),
+              // bottomLeft: Radius.circular(40.0),
+            ),
+          ),
+          height: 70,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () => {
-                      setState(() {
-                        currentScreen = Dashboard();
-                        index = 0;
-                      })
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xffFFDEBF),
-                              border: Border.all()),
-                          child: Icon(
-                            Icons.home,
-                            color: index == 2 ? Colors.black : Colors.black,
-                          ),
-                        ),
-                      ],
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () => {
+                  setState(() {
+                    currentScreen = Dashboard();
+                    index = 0;
+                  })
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          border: Border.all()),
+                      child: Icon(
+                        Icons.home,
+                        color: index == 2 ? Colors.black : Colors.black,
+                      ),
                     ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () => {
-                      setState(() {
-                        currentScreen = Explore();
-                        index = 1;
-                      })
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xffFFDEBF),
-                              border: Border.all()),
-                          child: Icon(
-                            Icons.explore,
-                            color: index == 2 ? Colors.black : Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () => {
-                      setState(() {
-                        currentScreen = NoteDown();
-                        index = 2;
-                      })
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xffFFDEBF),
-                              border: Border.all(style: BorderStyle.solid)),
-                          child: Icon(
-                            Icons.text_snippet_rounded,
-                            color: index == 2 ? Colors.black : Colors.black,
-                          ),
-                        ),
-                      ],
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () => {
+                  setState(() {
+                    currentScreen = Explore();
+                    index = 1;
+                  })
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          border: Border.all()),
+                      child: Icon(
+                        Icons.explore,
+                        color: index == 2 ? Colors.black : Colors.black,
+                      ),
                     ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () => {
-                      setState(() {
-                        currentScreen = ArZone();
-                        index = 3;
-                      })
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xffFFDEBF),
-                              border: Border.all()),
-                          child: Icon(
-                            Icons.camera_alt_outlined,
-                            color: index == 2 ? Colors.black : Colors.black,
-                          ),
-                        ),
-                      ],
+                  ],
+                ),
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () => {
+                  setState(() {
+                    currentScreen = NoteDown();
+                    index = 2;
+                  })
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          border: Border.all(style: BorderStyle.solid)),
+                      child: Icon(
+                        Icons.text_snippet_rounded,
+                        color: index == 2 ? Colors.black : Colors.black,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () => {
+                  setState(() {
+                    currentScreen = ArZone();
+                    index = 3;
+                  })
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white70,
+                          border: Border.all()),
+                      child: Icon(
+                        Icons.camera_alt_outlined,
+                        color: index == 2 ? Colors.black : Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

@@ -1,4 +1,4 @@
-import 'package:mumbai/pages/details/gateway.dart';
+import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
   const Details({Key? key}) : super(key: key);
@@ -10,6 +10,6 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
-    return GatewayofIndia(name: name);
+    return Container();
   }
 }
