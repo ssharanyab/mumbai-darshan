@@ -22,6 +22,7 @@ class _DashboardState extends State<Dashboard> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
           Positioned(
@@ -30,13 +31,17 @@ class _DashboardState extends State<Dashboard> {
               width: width,
               height: 200,
               decoration: const BoxDecoration(
-                color: Color(0xffC98686),
-                border: Border(
-                  bottom: BorderSide(
-                    color: Color(0xffFFDEBF),
-                    width: 10,
-                  ),
+                color: Colors.black,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
                 ),
+                // border: Border(
+                //   bottom: BorderSide(
+                //     color: Colors.yellow,
+                //     width: 10,
+                //   ),
+                // ),
               ),
               alignment: Alignment.bottomLeft,
               child: Padding(
@@ -52,11 +57,15 @@ class _DashboardState extends State<Dashboard> {
                       'Mumbai Darshan',
                       style: TextStyle(
                         fontSize: 36,
+                        color: Colors.yellow,
                       ),
                     ),
                     Text(
                       'Explore the City of Dreams',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
                     ),
                   ],
                 ),
@@ -71,7 +80,7 @@ class _DashboardState extends State<Dashboard> {
               width: 262,
               height: 60,
               decoration: BoxDecoration(
-                color: Color(0xffFFDEBF),
+                color: Colors.yellow,
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: Colors.black,
@@ -81,7 +90,9 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Row(
                   children: [
-                    Icon(Icons.search),
+                    Icon(
+                      Icons.search,
+                    ),
                     Container(
                       width: 200,
                       padding: EdgeInsets.only(left: 10),
@@ -103,7 +114,7 @@ class _DashboardState extends State<Dashboard> {
           ),
           Positioned(
             top: 250,
-            left: 15,
+            left: 30,
             right: 15,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,6 +123,7 @@ class _DashboardState extends State<Dashboard> {
                   'Popular Places',
                   style: TextStyle(
                     fontSize: 22,
+                    color: Colors.white,
                   ),
                 ),
                 Container(

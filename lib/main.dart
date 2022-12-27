@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import 'DashboardNew.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,30 +15,30 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        backgroundColor: Colors.white,
-        primarySwatch: Colors.blue,
-        appBarTheme: const AppBarTheme(
-          titleTextStyle: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+      theme: ThemeData.dark(
+          // backgroundColor: Colors.black,
+          // primarySwatch: Colors.blue,
+          // appBarTheme: const AppBarTheme(
+          //   titleTextStyle: TextStyle(
+          //     color: Colors.black,
+          //     fontSize: 20,
+          //     fontWeight: FontWeight.bold,
+          //   ),
+          //   toolbarHeight: 60,
+          //   elevation: 0,
+          //   backgroundColor: Color(0xffC98686),
+          //   iconTheme: IconThemeData(
+          //     color: Colors.black,
+          //   ),
+          //   shape: Border(
+          //     bottom: BorderSide(
+          //       color: Color(0xffFFDEBF),
+          //       width: 7,
+          //     ),
+          //   ),
+          // ),
           ),
-          toolbarHeight: 60,
-          elevation: 0,
-          backgroundColor: Color(0xffC98686),
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-          shape: Border(
-            bottom: BorderSide(
-              color: Color(0xffFFDEBF),
-              width: 7,
-            ),
-          ),
-        ),
-      ),
-      home: const Home(),
+      home: const DashboardNew(),
     );
   }
 }

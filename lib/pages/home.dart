@@ -52,11 +52,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       ),
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 100,
+        elevation: 0,
+        color: Colors.black,
         child: Container(
           decoration: const BoxDecoration(
-            color: Colors.red,
+            color: Colors.yellow,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(30.0),
               //bottomRight: Radius.circular(40.0),
@@ -64,7 +64,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               // bottomLeft: Radius.circular(40.0),
             ),
           ),
-          height: 70,
+          height: 80,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -85,11 +85,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       width: 40,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white,
+                          color: Colors.yellow,
                           border: Border.all()),
                       child: Icon(
                         Icons.home,
-                        color: index == 2 ? Colors.black : Colors.black,
+                        color: Colors.black,
                       ),
                     ),
                   ],
@@ -111,11 +111,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       width: 40,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white,
+                          color: Colors.yellow,
                           border: Border.all()),
                       child: Icon(
-                        Icons.explore,
-                        color: index == 2 ? Colors.black : Colors.black,
+                        Icons.explore_outlined,
                       ),
                     ),
                   ],
@@ -137,11 +136,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       width: 40,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white,
+                          color: Colors.yellow,
                           border: Border.all(style: BorderStyle.solid)),
                       child: Icon(
                         Icons.text_snippet_rounded,
-                        color: index == 2 ? Colors.black : Colors.black,
                       ),
                     ),
                   ],
@@ -163,11 +161,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       width: 40,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white70,
+                          color: Colors.yellow,
                           border: Border.all()),
-                      child: Icon(
+                      child: const Icon(
                         Icons.camera_alt_outlined,
-                        color: index == 2 ? Colors.black : Colors.black,
                       ),
                     ),
                   ],
