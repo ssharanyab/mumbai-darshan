@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mumbai/DashboardNew.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:mumbai/routes/routes.dart';
+
+import '../pages/ExploreNew.dart';
 
 class BottomBarNew extends StatelessWidget {
   final double width;
@@ -21,14 +25,16 @@ class BottomBarNew extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const DashboardNew()),
-              )
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const DashboardNew()),
+              // )
+              //   Navigator.pushReplacementNamed(context, '/dashboard')
+              Get.toNamed(RoutesClass.getDashboardRoute())
             },
             icon: const Icon(
               Icons.home,
-              color: Colors.yellow,
+              //color: Colors.yellow,
             ),
           ),
           Container(
@@ -38,7 +44,12 @@ class BottomBarNew extends StatelessWidget {
             ),
             child: Center(
               child: IconButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ExploreNew()),
+                  )
+                },
                 icon: const Icon(
                   Icons.explore,
                 ),

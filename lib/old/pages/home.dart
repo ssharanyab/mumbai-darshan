@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mumbai/pages/ar_zone.dart';
-import 'package:mumbai/pages/dashboard.dart';
-import 'package:mumbai/pages/explore.dart';
-import 'package:mumbai/pages/notedown.dart';
-import 'package:mumbai/pages/translate.dart';
+import 'package:mumbai/old/pages/translate.dart';
+
+import 'dashboard.dart';
+import 'explore.dart';
+import 'notedown.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -149,7 +149,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 minWidth: 40,
                 onPressed: () => {
                   setState(() {
-                    currentScreen = ArZone();
+                    currentScreen = NoteDown();
                     index = 3;
                   })
                 },

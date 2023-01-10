@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mumbai/pages/details/cst.dart';
-import 'package:mumbai/pages/details/gateway.dart';
-import 'package:mumbai/pages/details/marinedrive.dart';
-import 'package:mumbai/pages/details/princeofwales.dart';
-import 'package:mumbai/widgets/card.dart';
+
+import '../widgets/card.dart';
+import 'details/cst.dart';
+import 'details/gateway.dart';
+import 'details/marinedrive.dart';
+import 'details/princeofwales.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mumbai/widgets_new/bottom_bar.dart';
-import 'package:mumbai/widgets_new/explore_placeholder.dart';
+
+import '../widgets/bottom_bar.dart';
+import '../widgets/explore_placeholder.dart';
 
 class DashboardNew extends StatefulWidget {
   const DashboardNew({Key? key}) : super(key: key);
@@ -17,7 +18,8 @@ class _DashboardNewState extends State<DashboardNew> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(Icons.menu),
+
+        //leading: const Icon(Icons.menu),
         actions: [
           IconButton(
             onPressed: () {},
@@ -46,9 +48,6 @@ class _DashboardNewState extends State<DashboardNew> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
                     const Text(
                       'Popular',
                       style: TextStyle(
@@ -100,6 +99,18 @@ class _DashboardNewState extends State<DashboardNew> {
                               ),
                             ),
                           ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search',
+                        prefixIcon: Icon(Icons.search),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                     ),
