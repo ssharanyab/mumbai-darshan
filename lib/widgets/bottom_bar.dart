@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:mumbai/routes/routes.dart';
 
+import '../pages/DashboardNew.dart';
 import '../pages/ExploreNew.dart';
 
 class BottomBarNew extends StatelessWidget {
@@ -25,12 +23,11 @@ class BottomBarNew extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () => {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const DashboardNew()),
-              // )
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const DashboardNew()),
+              )
               //   Navigator.pushReplacementNamed(context, '/dashboard')
-              Get.toNamed(RoutesClass.getDashboardRoute())
             },
             icon: const Icon(
               Icons.home,
@@ -45,9 +42,9 @@ class BottomBarNew extends StatelessWidget {
             child: Center(
               child: IconButton(
                 onPressed: () => {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const ExploreNew()),
+                    MaterialPageRoute(builder: (context) => ExploreNew()),
                   )
                 },
                 icon: const Icon(

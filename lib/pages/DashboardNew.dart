@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/bottom_bar.dart';
 import '../widgets/explore_placeholder.dart';
+import 'ExploreNew.dart';
 
 class DashboardNew extends StatefulWidget {
   const DashboardNew({Key? key}) : super(key: key);
@@ -11,6 +12,24 @@ class DashboardNew extends StatefulWidget {
 }
 
 class _DashboardNewState extends State<DashboardNew> {
+  final List _exploreTitles = [
+    'Places',
+    'Food',
+    'Shopping',
+    'Activities',
+  ];
+  final List _exploreIcons = [
+    Icons.location_on,
+    Icons.restaurant,
+    Icons.shopping_cart,
+    Icons.local_play,
+  ];
+  final List _explorePages = [
+    ExploreNew(),
+    ExploreNew(),
+    ExploreNew(),
+    ExploreNew(),
+  ];
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -18,23 +37,11 @@ class _DashboardNewState extends State<DashboardNew> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-
-        //leading: const Icon(Icons.menu),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.settings),
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
-          vertical: 10,
+          //vertical: 10,
         ),
         child: Stack(
           children: [
@@ -48,75 +55,6 @@ class _DashboardNewState extends State<DashboardNew> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Popular',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: SizedBox(
-                        height: 200,
-                        width: width,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: Container(
-                                width: width * 0.6,
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10.0),
-                              child: Container(
-                                width: width * 0.4,
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10.0),
-                              child: Container(
-                                width: width * 0.4,
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search',
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -134,36 +72,121 @@ class _DashboardNewState extends State<DashboardNew> {
                             color: Colors.yellow,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Icon(
-                            Icons.arrow_forward,
-                            color: Colors.black,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ExploreNew()),
+                              );
+                            },
+                            child: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          ExplorePlaceholder(
-                            icon: Icons.location_on,
-                            text: 'Places',
+                      child: SizedBox(
+                        height: 100,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: _exploreTitles.length,
+                          itemExtent: 100,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: ExplorePlaceholder(
+                                icon: _exploreIcons[index],
+                                text: _exploreTitles[index],
+                                page: _explorePages[index],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      // child: Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: const [
+                      //     ExplorePlaceholder(
+                      //       icon: Icons.location_on,
+                      //       text: 'Places',
+                      //     ),
+                      //     ExplorePlaceholder(
+                      //       icon: Icons.restaurant,
+                      //       text: 'Food',
+                      //     ),
+                      //     ExplorePlaceholder(
+                      //       icon: Icons.shopping_cart,
+                      //       text: 'Shopping',
+                      //     ),
+                      //     ExplorePlaceholder(
+                      //       icon: Icons.local_play,
+                      //       text: 'Activities',
+                      //     ),
+                      //   ],
+                      // ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Search(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      'Popular',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      height: 180,
+                      width: width,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: Container(
+                              width: width * 0.6,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
                           ),
-                          ExplorePlaceholder(
-                            icon: Icons.restaurant,
-                            text: 'Food',
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Container(
+                              width: width * 0.4,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
                           ),
-                          ExplorePlaceholder(
-                            icon: Icons.shopping_cart,
-                            text: 'Shopping',
-                          ),
-                          ExplorePlaceholder(
-                            icon: Icons.local_play,
-                            text: 'Activities',
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Container(
+                              width: width * 0.4,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -179,6 +202,25 @@ class _DashboardNewState extends State<DashboardNew> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Search extends StatelessWidget {
+  const Search({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      decoration: InputDecoration(
+        hintText: 'Search',
+        prefixIcon: Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
         ),
       ),
     );
