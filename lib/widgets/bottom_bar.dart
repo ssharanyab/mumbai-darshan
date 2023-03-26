@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mumbai/pages/NotesNew.dart';
 
+import '../pages/BookmarksNew.dart';
 import '../pages/DashboardNew.dart';
 import '../pages/ExploreNew.dart';
 
@@ -60,7 +62,12 @@ class BottomBarNew extends StatelessWidget {
             ),
             child: Center(
               child: IconButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => BookmarksNew()),
+                  )
+                },
                 icon: const Icon(
                   Icons.bookmark,
                 ),
@@ -74,7 +81,12 @@ class BottomBarNew extends StatelessWidget {
             ),
             child: Center(
               child: IconButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => NotesNew()),
+                  )
+                },
                 icon: const Icon(
                   Icons.note_alt_sharp,
                 ),
